@@ -1,0 +1,224 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Product Details</title>
+    <style>
+    
+        body {
+            font-family: 'Arial', sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f5f5f5;
+            color: #333;
+        }
+
+        header, footer {
+            background-color: #333;
+            color: #fff;
+            padding: 10px;
+            text-align: center;
+        }
+
+        section {
+            max-width: 800px;
+            margin: 20px auto;
+            padding: 20px;
+            background-color: #fff;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            border-radius: 10px;
+        }
+
+        #product-container {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 20px;
+            align-items: flex-start;
+        }
+
+        #product-image {
+            flex: 1;
+            position: relative;
+        }
+
+        #product-image img {
+            max-width: 100%;
+            height: auto;
+            border: 1px solid #ddd;
+            padding: 5px;
+            border-radius: 5px;
+            transition: transform 0.3s ease-in-out;
+        }
+
+        #product-image:hover img {
+            transform: scale(1.1);
+        }
+
+        .product-images {
+            display: flex;
+            gap: 10px;
+            margin-top: 20px;
+        }
+
+        .product-images img {
+            width: 80px;
+            height: 80px;
+            object-fit: cover;
+            cursor: pointer;
+            transition: transform 0.3s ease-in-out;
+            border-radius: 5px;
+        }
+
+        .product-images img:hover {
+            transform: scale(1.1);
+        }
+
+        #product-info {
+            flex: 1;
+        }
+
+        #buy-section {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-top: 20px;
+        }
+
+        #buy-section button {
+            padding: 15px;
+            background-color: #333;
+            color: #fff;
+            border: none;
+            cursor: pointer;
+            border-radius: 5px;
+            transition: background-color 0.3s ease;
+        }
+
+        #buy-section button:hover {
+            background-color: #555;
+        }
+
+        #buy-section input {
+            padding: 10px;
+            width: 60px;
+            border: 1px solid #000000;
+            border-radius: 5px;
+            margin-right: 10px;
+        }
+
+        #product-description {
+            margin-top: 20px;
+        }
+      
+
+#color-preview {
+    display: flex;
+    align-items: center;
+    margin-top: 10px;
+}
+
+
+
+.color-circle {
+    width: 30px;
+    height: 30px;
+    border: 1px solid #ddd;
+    border-radius: 50%;
+    margin-right: 10px;
+    cursor: pointer;
+}
+
+.color-circle:hover {
+    transform: scale(1.1);
+}
+
+    </style>
+</head>
+<body>
+
+
+
+
+
+
+<section id="product-container">
+    
+    <section id="product-image">
+        <img src="./img2.jpg" alt="Product Image">
+
+        
+        <div class="product-images">
+            <img src="./img1.jpg" alt="Product Image" onclick="changeMainImage(this)">
+            <img src="./img3.jpg" alt="Product Image" onclick="changeMainImage(this)">
+            <img src="./img2.jpg" alt="Product Image" onclick="changeMainImage(this)">
+           
+        </div>
+    </section>
+
+    
+    <section id="product-info">
+        <h2>Product Name</h2>
+        <p>Short Description of the product goes here...</p>
+
+        <div id="buy-section">
+            <div>
+                <button onclick="buyNow()">Buy Now</button>
+                <button onclick="addToCart()">Add to Cart</button>
+            </div>
+            <div>
+                <label for="quantity">Quantity:</label>
+                <input type="number" id="quantity" value="1" min="1">
+            </div>
+        </div>
+
+<div id="color-preview">
+    <div id="selected-color"></div>
+    <div class="color-circle" style="background-color: white;"></div>
+    <div class="color-circle" style="background-color: black;"></div>
+    <div class="color-circle" style="background-color: gray;"></div>
+    <div class="color-name"></div>
+</div>
+
+        <p>Estimated Delivery Time: 2-3 days</p>
+        <div class="star-rating">&#9733;&#9733;&#9733;&#9733;&#9734;</div> 
+
+        
+        <div class="product-price">$99.99</div>
+
+        
+        <div id="product-description">
+            <h2>Description</h2>
+            <p>Detailed product description goes here...</p>
+        </div>
+    </section>
+
+<script>
+    var selectedColor = '';  
+
+    function updateColorPreview(color) {
+        selectedColor = color;  
+        var colorPreview = document.getElementById('selected-color');
+        var colorName = document.querySelector('.color-name');
+        colorPreview.style.backgroundColor = selectedColor;
+        colorName.innerText = selectedColor;
+    }
+
+    function buyNow() {
+   
+        alert('Buy Now clicked! Selected color: ' + selectedColor);
+    }
+
+    function addToCart() {
+       
+        alert('Add to Cart clicked! Selected color: ' + selectedColor);
+    }
+
+    function changeMainImage(element) {
+        var mainImage = document.querySelector('#product-image img');
+        mainImage.src = element.src;
+    }
+</script>
+
+</body>
+</html>
